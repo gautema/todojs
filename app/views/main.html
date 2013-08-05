@@ -1,9 +1,13 @@
 <div class="hero-unit">
-  <h1>'Allo, 'Allo!</h1>
+  <h1>todos</h1>
   <p>You now have</p>
   <ul>
-      <li ng-repeat="thing in awesomeThings">{{thing}}</li>
+      <li ng-repeat="item in items| filter: !!boolean"><input type='checkbox' ng-model='item.completed' ng-change='completedChanged(item)'> {{item.name}}</li>
   </ul>
-  <p>installed.</p>
-  <h3>Enjoy coding! - Yeoman</h3>
+  <p>{{unfinished.length}} items left</p>
+    <ul>
+      <li ng-repeat="item in items| filter: !boolean"><input type='checkbox' ng-model='item.completed' ng-change='completedChanged(item)'> {{item.name}}</li>
+  </ul>
+  <p>{{finished.length}} items finished</p>
+  <p>{{items.length}} total items</p>
 </div>
