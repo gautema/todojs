@@ -1,5 +1,7 @@
-angular.module('mainFilters', []).filter('boolean', function() {
+'use strict';
+
+angular.module('mainFilters', []).filter('completed', function() {
   return function(input) {
-    return !!input;
+    return !!input.completed;
   };
 });

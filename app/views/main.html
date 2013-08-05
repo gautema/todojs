@@ -2,12 +2,12 @@
   <h1>todos</h1>
   <p>You now have</p>
   <ul>
-      <li ng-repeat="item in items| filter: !!boolean"><input type='checkbox' ng-model='item.completed' ng-change='completedChanged(item)'> {{item.name}}</li>
+      <li ng-repeat="item in items| filter: !!completed"><input type='checkbox' ng-model='item.completed' ng-change='completedChanged(item)'> {{item.name}}</li>
   </ul>
-  <p>{{unfinished.length}} items left</p>
+  <p>{{remainingCount}} items left</p>
     <ul>
-      <li ng-repeat="item in items| filter: !boolean"><input type='checkbox' ng-model='item.completed' ng-change='completedChanged(item)'> {{item.name}}</li>
+      <li ng-repeat="item in items| filter: !completed"><input type='checkbox' ng-model='item.completed' ng-change='completedChanged(item)'> {{item.name}}</li>
   </ul>
-  <p>{{finished.length}} items finished</p>
+  <p>{{completedCount}} items finished</p>
   <p>{{items.length}} total items</p>
 </div>
