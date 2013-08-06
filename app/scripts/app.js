@@ -1,6 +1,7 @@
 'use strict';
+/*jshint unused:false */
 
-angular.module('todoApp', [])
+var todoApp = angular.module('todoApp', [])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
