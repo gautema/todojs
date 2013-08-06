@@ -10,7 +10,7 @@
   </ul>
   <p>{{remainingCount}} items left</p>
     <ul>
-      <li ng-repeat="item in items| filter: !completed">
+      <li ng-repeat="item in items| filter: !completed" ng-class="{completed: item.completed}">
         <input type='checkbox' ng-model='item.completed' ng-change='completedChanged(item)'> 
         {{item.name}}
         <button type='button' ng-click='deleteItem(item)'>x</button>
