@@ -10,6 +10,16 @@ angular.module('todoApp')
     $scope.remainingCount = $scope.items.filter(function(element){ return !element.completed;}).length;
     $scope.completedCount = $scope.items.length - $scope.remainingCount;
 
+    $scope.deleteItem = function(item){
+      var index = $scope.items.indexOf(item);
+      $scope.items.splice(index, 1);
+      if(item.completed){
+        $scope.completedCount--;
+      }else{
+        $scope.remainingCount--;
+      }
+
+    };
     $scope.completedChanged = function(item){
       $scope.remainingCount += item.completed ? -1:1;
       $scope.completedCount -= item.completed ? -1:1;
@@ -20,4 +30,6 @@ angular.module('todoApp')
       $scope.remainingCount++;
       $scope.newItem = '';
     };
+
+
   });

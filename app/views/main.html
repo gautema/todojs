@@ -2,11 +2,19 @@
   <h1>todos</h1>
   <p>You now have</p>
   <ul>
-      <li ng-repeat="item in items| filter: !!completed"><input type='checkbox' ng-model='item.completed' ng-change='completedChanged(item)'> {{item.name}}</li>
+    <li ng-repeat="item in items| filter: !!completed">
+      <input type='checkbox' ng-model='item.completed' ng-change='completedChanged(item)'>
+        {{item.name}}
+        <button type='button' ng-click='deleteItem(item)'>x</button>
+    </li>
   </ul>
   <p>{{remainingCount}} items left</p>
     <ul>
-      <li ng-repeat="item in items| filter: !completed"><input type='checkbox' ng-model='item.completed' ng-change='completedChanged(item)'> {{item.name}}</li>
+      <li ng-repeat="item in items| filter: !completed">
+        <input type='checkbox' ng-model='item.completed' ng-change='completedChanged(item)'> 
+        {{item.name}}
+        <button type='button' ng-click='deleteItem(item)'>x</button>
+      </li>
   </ul>
   <p>{{completedCount}} items finished</p>
   <p>{{items.length}} total items</p>
