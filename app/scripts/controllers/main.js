@@ -7,11 +7,17 @@ angular.module('todoApp')
       {name: 'two', completed: true}
     ];
 
-    $scope.remainingCount = $scope.items.filter(function(element){ return !element.completed}).length;
+    $scope.remainingCount = $scope.items.filter(function(element){ return !element.completed;}).length;
     $scope.completedCount = $scope.items.length - $scope.remainingCount;
 
     $scope.completedChanged = function(item){
       $scope.remainingCount += item.completed ? -1:1;
       $scope.completedCount -= item.completed ? -1:1;
+    };
+
+    $scope.addItem = function(){
+      $scope.items.push({name: $scope.newItem, completed: false});
+      $scope.remainingCount++;
+      $scope.newItem = '';
     };
   });
