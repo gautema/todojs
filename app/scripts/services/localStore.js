@@ -7,7 +7,6 @@ todoApp.factory('localStore', function() {
       return JSON.parse(localStorage.getItem('todos'))||[];
     },
     put: function(todos){
-      debugger;
       return localStorage.setItem('todos', JSON.stringify(todos));
     }
   };
